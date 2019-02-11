@@ -6,7 +6,10 @@
     <tr>
       <td><%= link_to tag.name, tag_path(tag) %></td>
       <td>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
-      <td><%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the tag?"} %></td>
+      
+      <% if logged_in? %>
+        <td><%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: "Really delete the tag?"} %></td>
+      <% end %> 
     </tr>
   <% end %>
 </table><br />
